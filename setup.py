@@ -725,6 +725,8 @@ def determine_gl_flags():
         flags['libraries'] = ['GLESv2']
         c_options['use_x11'] = True
         c_options['use_egl'] = True
+    elif platform in ['linux']:
+        c_options['use_x11'] = True
     else:
         flags['libraries'] = ['GL']
     return flags, base_flags
