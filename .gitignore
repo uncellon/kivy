@@ -84,3 +84,8 @@ venv
 kivy/setupconfig.py
 
 kivy/core/clipboard/_clipboard_sdl2.c
+
+# Windows in-source build files
+*.exp
+*.lib
+*.obj
