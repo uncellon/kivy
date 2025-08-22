@@ -90,7 +90,6 @@ from kivy.clock import Clock
 from kivy.compat import string_types, iterkeys
 from kivy.weakproxy import WeakProxy
 
-
 class Animation(EventDispatcher):
     '''Create an animation definition that can be used to animate a Widget.
 
@@ -298,7 +297,7 @@ class Animation(EventDispatcher):
 
     def _initialize(self, widget):
         d = self._widgets[widget.uid] = {
-            'widget': widget,
+            'widget': widget.proxy_ref,
             'properties': {},
             'time': None}
 
