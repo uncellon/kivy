@@ -109,6 +109,7 @@ cdef int event_callback(XEvent *event):
 
     elif event.type == MotionNotify:
         modifiers = get_modifiers_from_state(event.xmotion.state)
+        _window_object.mouse_pos = event.xmotion.x, _window_object._size[1] - event.xmotion.y
         _window_object.dispatch('on_mouse_move',
                 event.xmotion.x, event.xmotion.y, modifiers)
 
@@ -253,4 +254,3 @@ class WindowX11(WindowBase):
                 return True
         super(WindowX11, self).on_keyboard(key, scancode,
             codepoint=codepoint, modifier=modifier)
-
