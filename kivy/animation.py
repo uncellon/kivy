@@ -487,7 +487,6 @@ class Sequence(CompoundAnimation):
     def start(self, widget):
         self.stop(widget)
         self._widgets[widget.uid] = True
-        self._register()
         self.dispatch('on_start', widget)
         self.anim1.start(widget)
 
@@ -542,7 +541,6 @@ class Parallel(CompoundAnimation):
         self.anim1.start(widget)
         self.anim2.start(widget)
         self._widgets[widget.uid] = {'complete': 0}
-        self._register()
         self.dispatch('on_start', widget)
 
     def on_anim_complete(self, instance, widget):
